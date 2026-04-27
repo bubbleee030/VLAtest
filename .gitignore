@@ -9,6 +9,7 @@ __pycache__/
 venv/
 .env
 .DS_Store
+._*
 Thumbs.db
 
 # Runtime / generated outputs
