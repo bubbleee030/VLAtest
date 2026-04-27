@@ -1,0 +1,85 @@
+phase_version: 1
+target_object: ''
+source_recording: tofu
+source_recording_json: tofu.json
+ready_pose:
+- 490127
+- 0
+- 425027
+- 179999
+- 0
+- 0
+hover_pose:
+- 484659
+- 0
+- 425027
+- 175784
+- 245
+- -86668
+pregrasp_pose:
+- 484659
+- 0
+- 222111
+- 175784
+- 245
+- -86668
+grasp_pose:
+- 484659
+- 0
+- 187111
+- 175784
+- 245
+- -86668
+lift_pose:
+- 484659
+- 0
+- 425027
+- 175784
+- 245
+- -86668
+speed:
+  fast_percent: 60
+  slow_percent: 25
+  pregrasp_percent: 25
+  grasp_percent: 25
+  lift_percent: 60
+timing:
+  settle_s: 0.4
+  grip_hold_s: 0.8
+  prepare_open_s: 0.2
+  move_timeout_s: 12.0
+z_offsets:
+  hover_z_offset_um: 180000
+  pregrasp_z_offset_um: 35000
+  lift_z_offset_um: 200000
+return_pose: ready
+gripper:
+  open_at_start: true
+  open_mode: positions
+  open_command: o
+  open_positions:
+  - 0
+  - 0
+  - 0
+  position_move_mode: stepped
+  open_step_ticks: 24
+  open_step_delay_s: 0.015
+  close_mode: positions
+  close_command: c
+  close_positions:
+  - 0
+  - 0
+  - 0
+  close_step_ticks: 10
+  close_step_delay_s: 0.03
+  open_after_replay: false
+seed:
+  grasp_waypoint_index: 1
+  hover_seed_pose:
+  - 484659
+  - 0
+  - 347158
+  - 175784
+  - 245
+  - -86668
+  inferred_object_key: ''

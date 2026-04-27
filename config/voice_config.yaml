@@ -1,0 +1,27 @@
+# Voice recognition (ASR) configuration.
+
+engine: "whisper"                    # "whisper" or "breeze-asr"
+# For breeze-asr, set: engine: "breeze-asr"
+# Model ID: MediaTek-Research/Breeze-ASR-25
+preload_on_startup: true            # Load ASR when the demo server starts
+
+whisper:
+  model_size: "small"                # tiny/base/small/medium/large
+  language: null                     # null = auto-detect, "zh" for Chinese, "en" for English
+  device: "auto"                     # "auto", "cpu", or "cuda"
+
+breeze_asr:
+  model_id: "MediaTek-Research/Breeze-ASR-25"
+  device: "auto"
+
+# Microphone settings
+microphone:
+  sample_rate: 16000
+  channels: 1
+  record_seconds: 5                  # Max recording duration per utterance
+  silence_threshold: 0.02            # Auto-stop on silence
+  silence_duration_s: 1.5            # How long silence before auto-stop
+
+# Input mode
+input_mode: "push_to_talk"           # "push_to_talk" or "continuous"
+push_to_talk_key: "space"            # Hold this key to speak

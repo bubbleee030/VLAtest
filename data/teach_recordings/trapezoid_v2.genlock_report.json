@@ -1,0 +1,21 @@
+{
+  "mode": "teach",
+  "episode_dir": null,
+  "teach_json": "D:\\Codes\\voice_pick\\data\\teach_recordings\\trapezoid_v2.json",
+  "teach_start_unix": 1776966305.3686194,
+  "base_csv": null,
+  "gripper_csv": "D:\\Codes\\voice_pick\\data\\teach_recordings\\gripper_stream.csv",
+  "external_csv": "D:\\Codes\\voice_pick\\tactile_data_1776966038.csv",
+  "base_rows": 4,
+  "gripper_rows": 0,
+  "external_rows": 7234,
+  "matched_gripper_rows": 0,
+  "matched_external_rows": 4,
+  "max_delta_sec": 0.1,
+  "external_relative": false,
+  "external_start_unix": null,
+  "external_offset_sec": 0.0,
+  "output_csv": "D:\\Codes\\voice_pick\\data\\teach_recordings\\trapezoid_v2.genlock_merged.csv",
+  "teach_output_json": "D:\\Codes\\voice_pick\\data\\teach_recordings\\trapezoid_v2.merged.json",
+  "external_timeline_samples": 1399
+}

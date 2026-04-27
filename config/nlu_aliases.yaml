@@ -1,0 +1,58 @@
+# Voice/NLU-specific normalization and phrase mapping.
+# Use this file for "what people might say" -> "which object it should mean".
+
+debug:
+  enabled: true
+
+global_normalization:
+  "梯型": "梯形"
+  "梯型塊": "梯形塊"
+  "紅色的方塊": "紅色梯形"
+  "紅色方塊": "紅色梯形"
+  "竹签": "竹籤"
+
+phrase_map:
+  "紅色": "trapezoid"
+  "紅色那個": "trapezoid"
+  "紅色那塊": "trapezoid"
+  "紅色那個東西": "trapezoid"
+  "紅色木塊": "trapezoid"
+  "紅色梯形": "trapezoid"
+  "紅色的梯形": "trapezoid"
+  "板子": "board"
+  "電路板": "board"
+  "奶油刀": "butter_knife"
+  "奶油抹刀": "butter_knife"
+  "抹刀": "butter_knife"
+  "湯匙": "spoon"
+  "大湯匙": "spoon"
+  "小湯匙": "coffee_scoop"
+  "咖啡匙": "coffee_scoop"
+  "咖啡勺": "coffee_scoop"
+  "鑷子": "tweezers"
+  "小鑷子": "tweezers"
+  "刀子": "knife"
+  "菜刀": "knife"
+
+object_alias_overrides:
+  chopsticks:
+    chinese: ["那雙筷子"]
+  stick:
+    chinese: ["那支竹籤", "那支烤肉串"]
+  scissors:
+    chinese: ["那把剪刀"]
+  trapezoid:
+    chinese: ["梯形積木", "紅色梯形木塊"]
+  board:
+    chinese: ["那塊電路板"]
+    english: ["pcb board"]
+  butter_knife:
+    chinese: ["那支奶油刀"]
+  spoon:
+    chinese: ["那支湯匙"]
+  coffee_scoop:
+    chinese: ["那支小湯匙", "咖啡勺子"]
+  tweezers:
+    chinese: ["那支鑷子"]
+  knife:
+    chinese: ["那把刀子"]

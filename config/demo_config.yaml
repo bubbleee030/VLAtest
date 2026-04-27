@@ -1,0 +1,353 @@
+# Voice Pick Demo Configuration
+# All poses in controller units: um (position) / 0.001deg (rotation)
+
+# Safety boundary - arm REFUSES to move outside this box
+safety_boundary:
+  x_min: -100000
+  x_max: 700000
+  y_min: -500000
+  y_max: 500000
+  z_min: 100000       # protect desk/items from being crushed
+  z_max: 900000
+
+pose_limits:
+  enforce_maintenance_limits: false
+  enforce_rotation_limits: false
+  x_min: -43264
+  x_max: 671665
+  y_min: -469446
+  y_max: 469456
+  z_min: 110000
+  z_max: 900000
+  rx_min: -89999
+  rx_max: 89999
+  ry_min: -89999
+  ry_max: 89999
+
+# Speed settings
+speed:
+  fast_percent: 60     # for approach moves (above object)
+  slow_percent: 20     # for final descent + pick
+  speed_switch_z_offset_um: 50000  # switch to slow when this close above target Z
+
+# Gripper (AGX HTTP API)
+# Current Windows host is on Ethernet `192.168.1.x`.
+# AGX gripper API has been observed listening on `192.168.1.100:5002`,
+# so that endpoint is preferred first. Legacy Linux relay remains fallback.
+gripper:
+  enabled: true
+  agx_ip: "192.168.1.100"
+  agx_port: 5002
+  endpoints:
+    - host: "192.168.1.100"
+      port: 5002
+      label: "agx_192_168_1_100"
+    - host: "192.168.1.232"
+      port: 5002
+      label: "switch_direct_232"
+    - host: "192.168.1.233"
+      port: 5002
+      label: "switch_direct_233"
+    - host: "10.42.0.1"
+      port: 5002
+      label: "legacy_linux_relay"
+  open_command: "o"
+  close_command: "c"
+  close_delay_s: 1.5
+  open_delay_s: 0.5
+  position_move_mode: "stepped"
+  open_step_ticks: 24
+  open_step_delay_s: 0.015
+  close_step_ticks: 10
+  close_step_delay_s: 0.03
+
+# Arm connection (try in order, first TCP-reachable wins)
+# Direct switch targets are preferred before any old relay/tunnel path.
+arm:
+  connections:
+    - host: "192.168.1.232"
+      port: 502
+      label: "direct_232"
+    - host: "192.168.1.233"
+      port: 502
+      label: "direct_233"
+    - host: "10.42.0.1"
+      port: 1502
+      label: "legacy_linux_relay"
+    - host: "127.0.0.1"
+      port: 1502
+      label: "legacy_ssh_tunnel"
+  unit_id: 2
+  timeout_s: 1.0
+  pose_poll_hz: 4      # arm pose polling rate for monitor/trajectory
+
+# Pick sequence defaults
+pick_sequence:
+  home_before: true
+  home_after: false
+  return_pose: "ready"
+  settle_wait_s: 2.0
+
+home_routing:
+  default_strategy: "native_1405"
+  allow_staged_route: true
+  speed_percent: 20
+  wait_seconds: 20.0
+  verify_in_position: true
+  verify_timeout_s: 25.0
+  staged_route:
+    - label: "Raise Safe Z"
+      pose: [490127, 0, 744000, 179999, 0, 0]
+      speed_percent: 20
+      wait_seconds: 6.0
+    - label: "Align Home Orientation"
+      pose: [444000, 0, 744000, 0, -89999, 179999]
+      speed_percent: 20
+      wait_seconds: 6.0
+
+modules:
+  voice: { enabled: true, show_in_ui: true }
+  cam1: { enabled: true, show_in_ui: true }
+  cam2: { enabled: true, show_in_ui: true }
+  claw_cam: { enabled: true, show_in_ui: true }
+  sensor_chart: { enabled: true, show_in_ui: true }
+  arm_monitor: { enabled: true, show_in_ui: true }
+  gripper: { enabled: true, show_in_ui: true }
+  validation: { enabled: false, show_in_ui: false }
+  quick_pick: { enabled: true, show_in_ui: true }
+  trajectory: { enabled: true, show_in_ui: true }
+  teach: { enabled: true, show_in_ui: true }
+  logs: { enabled: true, show_in_ui: true }
+  virtual_env: { enabled: false, show_in_ui: false }
+  virtual_env_data: { enabled: false, show_in_ui: false }
+
+sensor_api:
+  enabled: true
+  base_url: "http://192.168.1.100:5001"
+  endpoint: "/get_sensor"
+  poll_hz: 15
+  request_timeout_s: 1.0
+  history_points: 180
+  auto_range: true
+  auto_range_padding_ratio: 0.08
+  min_range_span: 300
+  y_min: 0
+  y_max: 1100
+  panel:
+    default_rect: { x: 10, y: 0, w: 4, h: 4 }
+
+trajectory:
+  enabled: true
+  max_points: 1800
+  auto_clear: false
+  fade_by_time: true
+  colorscale: "Turbo"
+  line_width: 2
+  show_head_marker: true
+
+# Home pose (controller units)
+home_pose: [444000, 0, 744000, 0, -89999, 179999]
+
+# Ready pose / common approach pose used before pick demos
+ready_pose: [490127, 0, 425027, 179999, 0, 0]
+
+ready_motion:
+  speed_percent: 80
+  verify_in_position: true
+  verify_timeout_s: 20.0
+
+# Teach mode recording
+teach:
+  enabled: true
+  poll_interval_ms: 100
+  save_dir: "data/teach_recordings"
+  default_replay_mode: "phase_axis_split"
+  raw_replay_return_pose: "ready"
+  phase_templates:
+    default:
+      hover_z_offset_um: 180000
+      pregrasp_z_offset_um: 35000
+      lift_z_offset_um: 200000
+      fast_percent: 60
+      slow_percent: 25
+      pregrasp_percent: 25
+      grasp_percent: 25
+      lift_percent: 60
+      settle_s: 0.4
+      grip_hold_s: 0.8
+      return_pose: "ready"
+      close_command: "c"
+      gripper_position_move_mode: "stepped"
+      gripper_open_step_ticks: 24
+      gripper_open_step_delay_s: 0.015
+      gripper_close_step_ticks: 10
+      gripper_close_step_delay_s: 0.03
+      open_after_replay: false
+    object_overrides: {}
+  phase_generation:
+    use_ready_pose: true
+    infer_target_from_name: true
+  dataset_capture:
+    enabled: true
+    output_root: "data/recordings"
+    image_fps: 6
+    telemetry_hz: 10
+    camera_streams: ["cam1_rgb", "cam1_depth", "cam2_rgb", "cam2_depth", "claw_rgb"]
+  auto_label:
+    enabled: true
+    streams: ["claw_rgb"]
+    model_path: "data/models/yolo/yolo12sbest.pt"
+    conf: 0.35
+    export_format: "cvat_yolo"
+
+virtual_env:
+  enabled: true
+  base_url: "http://140.127.205.127:8765"
+  embed_path: "/ui"
+  webrtc_path: "/webrtc/"
+  console_path: "/ui"
+  display_path_template: "/display/{view}.jpg"
+  desired_views: ["d435_left", "d435_right", "wrist"]
+  sync:
+    enabled: true
+    request_timeout_s: 0.5
+    min_interval_s: 0.15
+    conflict_retry_s: 0.75
+    arm:
+      enabled: true
+      mode: "delta_raw"            # "delta_raw" uses 0422 /ee_move_delta_raw, "direct_ee_move" keeps local coarse transform
+      delta_units: "raw_counts"    # "raw_counts" preferred when Modbus raw pose is available; fallback is mm_deg
+      include_ee_pose: false
+      blocking: false
+      timeout_s: 0.15
+      mm_to_m_scale: 0.001
+      position_indices: [0, 1, 2]
+      position_signs: [1.0, 1.0, 1.0]
+      position_offsets_m: [0.0, 0.0, 0.0]
+      yaw_source_index: 5
+      yaw_sign: 1.0
+      yaw_offset_deg: 0.0
+      delta_threshold_m: 0.002
+      delta_threshold_yaw_deg: 1.0
+      calibration:
+        enabled: true
+        reference_local_pose_mm_deg: [444.0, 0.0, 744.0, 0.0, -89.999, 179.999]
+    gripper:
+      enabled: true
+      delta_threshold_m: 0.001
+      source_origin: [3072, 3072, 2048]
+      default_scale_m_per_tick: 0.0002
+      # Rename these targets to the actual gripper-related prim/object names
+      # that exist in the digital twin scene.
+      targets:
+        - target: "gripper_finger_1"
+          source_index: 0
+          axis: "x"
+          sign: 1.0
+          scale_m_per_tick: 0.0002
+          base_position_m: [0.0, 0.0, 0.0]
+          yaw_deg: 0.0
+        - target: "gripper_finger_2"
+          source_index: 1
+          axis: "y"
+          sign: 1.0
+          scale_m_per_tick: 0.0002
+          base_position_m: [0.0, 0.0, 0.0]
+          yaw_deg: 0.0
+        - target: "gripper_finger_3"
+          source_index: 2
+          axis: "z"
+          sign: 1.0
+          scale_m_per_tick: 0.0002
+          base_position_m: [0.0, 0.0, 0.0]
+          yaw_deg: 0.0
+    objects:
+      enabled: true
+      sync_on_start: true
+      sync_on_reload: true
+      clear_before_sync: false
+      coordinate_frame: "delta_xyz_mm"
+      use_pick_pose_as_object_pose: true
+      use_pick_rz_as_yaw: true
+      default_pick_z_offset_mm: 20
+      mappings:
+        chopsticks:
+          target: "chopsticks"
+        stick:
+          target: "hook1"
+        scissors:
+          target: "shears"
+        trapezoid:
+          target: "unnamed1_red"
+        board:
+          target: "board"
+        butter_knife:
+          target: "butterknife"
+        spoon:
+          target: "spoon"
+        coffee_scoop:
+          target: "bigspoon"
+        tweezers:
+          target: "forcept"
+        knife:
+          target: "knife1"
+
+# ---- Camera configuration ----
+# Supports 1 or 2 RealSense cameras.
+# Depth stream is optional per camera.
+cameras:
+  cam1:
+    serial: "908212071386"          # Camera 1 serial (leave empty for auto-detect)
+    enabled: true
+    enable_depth: true              # Set false to disable depth for this camera
+    label: "Cam1"
+  cam2:
+    serial: "943222070989"                      # Camera 2 serial
+    enabled: true
+    enable_depth: true
+    label: "Cam2"
+  claw:
+    enabled: true
+    source: 4                      # Windows probe found this claw UVC camera at index 4
+    label: "Claw Cam"
+    performance_profile: "balanced"
+    profiles:
+      quality:
+        capture_w: 960
+        capture_h: 540
+        stream_w: 640
+        stream_h: 360
+        infer_w: 640
+        infer_h: 360
+        stream_fps: 20
+        jpeg_quality: 65
+        infer_interval_s: 0.12
+      balanced:
+        capture_w: 640
+        capture_h: 360
+        stream_w: 424
+        stream_h: 240
+        infer_w: 424
+        infer_h: 240
+        stream_fps: 20
+        jpeg_quality: 50
+        infer_interval_s: 0.12
+      low_latency:
+        capture_w: 480
+        capture_h: 270
+        stream_w: 320
+        stream_h: 180
+        infer_w: 320
+        infer_h: 180
+        stream_fps: 12
+        jpeg_quality: 40
+        infer_interval_s: 0.18
+    overrides: {}
+    device: "auto"
+    enable_yolo: true
+    model_path: "data/models/yolo/yolo12sbest.pt"
+    conf: 0.6
+  resolution_w: 424
+  resolution_h: 240
+  fps: 15
+  init_delay_s: 2.0                # Delay between starting cam1 and cam2 (USB stability)

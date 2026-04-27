@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local env / IDE
+.venv/
+venv/
+.env
+.DS_Store
+Thumbs.db
+
+# Runtime / generated outputs
+data/models/
+data/panel_recordings/
+data/recordings/
+data/validation_sessions/
+
+# Optional local logs / temp
+*.log

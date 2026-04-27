@@ -1,0 +1,98 @@
+phase_version: 1
+target_object: board
+source_recording: board_v1
+source_recording_json: board_v1.json
+ready_pose:
+- 490127
+- 0
+- 425027
+- 179999
+- 0
+- 0
+hover_pose:
+- 546891
+- -227519
+- 425027
+- 179999
+- 0
+- 0
+pregrasp_pose:
+- 546891
+- -227519
+- 149628
+- 179999
+- 0
+- 0
+grasp_pose:
+- 546891
+- -227519
+- 114628
+- 179999
+- 0
+- 0
+lift_pose:
+- 546891
+- -227519
+- 425027
+- 179999
+- 0
+- 0
+speed:
+  fast_percent: 90
+  slow_percent: 50
+  pregrasp_percent: 90
+  grasp_percent: 40
+  lift_percent: 90
+timing:
+  settle_s: 0.15
+  grip_hold_s: 0.8
+  prepare_open_s: 0.1
+  move_timeout_s: 10.0
+z_offsets:
+  hover_z_offset_um: 180000
+  pregrasp_z_offset_um: 35000
+  lift_z_offset_um: 200000
+return_pose: ready
+gripper:
+  open_at_start: true
+  open_mode: positions
+  open_command: o
+  open_positions:
+  - 3039
+  - 3036
+  - 2008
+  position_move_mode: stepped
+  open_step_ticks: 24
+  open_step_delay_s: 0.015
+  open_wait_s: 2.5
+  close_mode: positions
+  close_command: c
+  close_positions:
+  - 3080
+  - 3123
+  - 2042
+  close_step_ticks: 18
+  close_step_delay_s: 0.03
+  close_wait_s: 2.5
+  close_tolerance_ticks: 55
+  release_mode: positions
+  release_command: o
+  release_positions:
+  - 3100
+  - 3143
+  - 2062
+  release_step_ticks: 12
+  release_step_delay_s: 0.02
+  release_wait_s: 3.5
+  release_tolerance_ticks: 20
+  open_after_replay: false
+seed:
+  grasp_waypoint_index: 6
+  hover_seed_pose:
+  - 490114
+  - 1
+  - 424990
+  - 179999
+  - 0
+  - 0
+  inferred_object_key: board

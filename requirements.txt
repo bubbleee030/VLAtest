@@ -1,0 +1,38 @@
+# Voice-Controlled Robotic Arm Pick System
+# Install: pip install -r requirements.txt
+
+# ---- Core ----
+numpy>=1.24
+opencv-python>=4.8
+PyYAML>=6.0
+
+# ---- Object Detection ----
+ultralytics>=8.1            # YOLOv8
+pyrealsense2; platform_system == "Windows" or platform_system == "Linux"
+pyrealsense2-mac; platform_system == "Darwin"
+
+# ---- Speech Recognition ----
+openai-whisper>=20231117    # Whisper ASR
+# transformers              # For breeze-asr (install if using HuggingFace model)
+sounddevice>=0.4            # Microphone capture
+soundfile>=0.12             # Audio file I/O
+
+# ---- Robot Control ----
+pyModbusTCP>=0.2
+
+# ---- Utilities ----
+tqdm>=4.65
+Pillow>=10.0
+requests>=2.31
+Flask>=2.3
+flask-socketio>=5.3
+simple-websocket>=0.10
+pyserial>=3.5
+keyboard>=0.13
+
+# ---- Hardware / Tooling ----
+dynamixel-sdk>=3.7
+
+# ---- Optional Desktop Tools ----
+customtkinter>=5.2
+matplotlib>=3.8

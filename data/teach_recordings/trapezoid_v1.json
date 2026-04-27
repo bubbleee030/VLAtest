@@ -1,0 +1,225 @@
+{
+  "name": "trapezoid_v1",
+  "created": "2026-04-24T14:35:46",
+  "start_unix": 1777012328.021945,
+  "waypoints": [
+    {
+      "t_ms": 1907,
+      "pose": [
+        490116,
+        0,
+        424995,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        3043,
+        3045,
+        2012
+      ],
+      "gripper_server_time_unix": 1777012325.3004353,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 11847,
+      "pose": [
+        560276,
+        0,
+        184715,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        3043,
+        3045,
+        2012
+      ],
+      "gripper_server_time_unix": 1777012335.231961,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 28905,
+      "pose": [
+        560276,
+        0,
+        184715,
+        179999,
+        0,
+        -9768
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        3043,
+        3045,
+        2012
+      ],
+      "gripper_server_time_unix": 1777012352.2871013,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 42529,
+      "pose": [
+        560276,
+        0,
+        164883,
+        179999,
+        0,
+        -9768
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        3043,
+        3045,
+        2012
+      ],
+      "gripper_server_time_unix": 1777012365.915971,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 61400,
+      "pose": [
+        560276,
+        0,
+        164883,
+        179999,
+        0,
+        -9768
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        2192,
+        2229,
+        1234
+      ],
+      "gripper_server_time_unix": 1777012384.7883723,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 69458,
+      "pose": [
+        560276,
+        0,
+        427283,
+        179999,
+        0,
+        -9768
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        2184,
+        2220,
+        1235
+      ],
+      "gripper_server_time_unix": 1777012392.8471417,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 80147,
+      "pose": [
+        560276,
+        -217400,
+        427283,
+        179999,
+        0,
+        -9768
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        2184,
+        2221,
+        1235
+      ],
+      "gripper_server_time_unix": 1777012403.53314,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 85901,
+      "pose": [
+        560276,
+        -217400,
+        172963,
+        179999,
+        0,
+        -9768
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        2184,
+        2220,
+        1235
+      ],
+      "gripper_server_time_unix": 1777012409.28408,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 108054,
+      "pose": [
+        560276,
+        -217400,
+        172963,
+        179999,
+        0,
+        -9768
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        2948,
+        2945,
+        1909
+      ],
+      "gripper_server_time_unix": 1777012431.4370513,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 116393,
+      "pose": [
+        560276,
+        -217400,
+        406863,
+        179999,
+        0,
+        -9768
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        2948,
+        2945,
+        1909
+      ],
+      "gripper_server_time_unix": 1777012439.7509103,
+      "tactile_data": ""
+    }
+  ],
+  "artifacts": {
+    "episode_dir": "data\\recordings\\trapezoid\\episode_003",
+    "metadata_path": "data\\recordings\\trapezoid\\episode_003\\metadata.json",
+    "capture_error": "",
+    "auto_label": {
+      "enabled": true,
+      "streams": [
+        {
+          "stream": "claw_rgb",
+          "export_dir": "data\\recordings\\trapezoid\\episode_003\\cvat_yolo\\claw_rgb",
+          "images": 545,
+          "labeled_images": 0
+        }
+      ],
+      "error": ""
+    },
+    "phase_yaml": "data\\teach_recordings\\trapezoid_v1.phases.yaml"
+  }
+}

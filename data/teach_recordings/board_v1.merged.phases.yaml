@@ -1,0 +1,131 @@
+phase_version: 1
+target_object: board
+source_recording: board_v1.merged
+source_recording_json: board_v1.merged.json
+
+# Pick side from board_v1: move to +Y board location, descend, then lift.
+ready_pose:
+- 490114
+- 1
+- 424990
+- 179999
+- 0
+- 0
+hover_pose:
+- 546891
+- 255509
+- 355725
+- 179999
+- 0
+- 0
+pregrasp_pose:
+- 546891
+- 255509
+- 160000
+- 179999
+- 0
+- 0
+grasp_pose:
+- 546891
+- 255509
+- 115899
+- 179999
+- 0
+- 0
+lift_pose:
+- 546891
+- 255509
+- 355725
+- 179999
+- 0
+- 0
+
+# Place side from board_v1: move to -Y board location, descend, release, lift.
+place_hover_pose:
+- 546891
+- -227519
+- 355725
+- 179999
+- 0
+- 0
+place_pose:
+- 546891
+- -227519
+- 125628
+- 179999
+- 0
+- 0
+place_lift_pose:
+- 546891
+- -227518
+- 263928
+- 179999
+- 0
+- 0
+
+speed:
+  fast_percent: 90
+  slow_percent: 50
+  pregrasp_percent: 90
+  grasp_percent: 40
+  lift_percent: 90
+  place_percent: 90
+  place_descend_percent: 50
+
+timing:
+  settle_s: 0.15
+  grip_hold_s: 0.45
+  release_hold_s: 0.35
+  prepare_open_s: 0.1
+  move_timeout_s: 10.0
+
+z_offsets:
+  hover_z_offset_um: 180000
+  pregrasp_z_offset_um: 35000
+  lift_z_offset_um: 200000
+
+return_pose: ready
+
+gripper:
+  open_at_start: true
+  open_mode: positions
+  open_command: o
+  open_positions:
+  - 3038
+  - 3036
+  - 2008
+  position_move_mode: stepped
+  open_step_ticks: 24
+  open_step_delay_s: 0.015
+  open_wait_s: 2.5
+  open_tolerance_ticks: 55
+
+  close_mode: positions
+  close_command: c
+  close_positions:
+  - 3069
+  - 3092
+  - 2046
+  close_step_ticks: 18
+  close_step_delay_s: 0.03
+  close_wait_s: 2.5
+  close_tolerance_ticks: 55
+
+  release_mode: positions
+  release_command: o
+  release_positions:
+  - 2722
+  - 3272
+  - 1648
+  release_step_ticks: 50
+  release_step_delay_s: 0.02
+  release_wait_s: 8.0
+  release_tolerance_ticks: 10
+
+  open_after_replay: false
+
+seed:
+  grasp_waypoint_index: 3
+  release_waypoint_index: 6
+  inferred_object_key: board
+  notes: "Manual board_v1 merged pick-and-place phase spec from tactile_data_1777015362.csv."

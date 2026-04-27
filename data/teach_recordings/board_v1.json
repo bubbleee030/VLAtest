@@ -1,0 +1,185 @@
+{
+  "name": "board_v1",
+  "created": "2026-04-24T15:45:05",
+  "start_unix": 1777016554.929901,
+  "waypoints": [
+    {
+      "t_ms": 3475,
+      "pose": [
+        490114,
+        1,
+        424990,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 100,
+      "gripper_pos": [
+        3039,
+        3036,
+        2008
+      ],
+      "gripper_server_time_unix": 1777016553.540729,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 37718,
+      "pose": [
+        490104,
+        255509,
+        424963,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 100,
+      "gripper_pos": [
+        3039,
+        3036,
+        2008
+      ],
+      "gripper_server_time_unix": 1777016587.7828624,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 39043,
+      "pose": [
+        546891,
+        255509,
+        424963,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 100,
+      "gripper_pos": [
+        3039,
+        3036,
+        2008
+      ],
+      "gripper_server_time_unix": 1777016589.1146126,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 71144,
+      "pose": [
+        546891,
+        255509,
+        114899,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 100,
+      "gripper_pos": [
+        3087,
+        3122,
+        2049
+      ],
+      "gripper_server_time_unix": 1777016621.2037487,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 77407,
+      "pose": [
+        546891,
+        255509,
+        355725,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 100,
+      "gripper_pos": [
+        3069,
+        3079,
+        2046
+      ],
+      "gripper_server_time_unix": 1777016627.471627,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 82073,
+      "pose": [
+        546891,
+        -227519,
+        355725,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 100,
+      "gripper_pos": [
+        3069,
+        3075,
+        2046
+      ],
+      "gripper_server_time_unix": 1777016632.1317346,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 89566,
+      "pose": [
+        546891,
+        -227519,
+        114628,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 100,
+      "gripper_pos": [
+        3080,
+        3123,
+        2042
+      ],
+      "gripper_server_time_unix": 1777016639.6300945,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 135859,
+      "pose": [
+        546891,
+        -227518,
+        263928,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 100,
+      "gripper_pos": [
+        3070,
+        3150,
+        2042
+      ],
+      "gripper_server_time_unix": 1777016685.9133627,
+      "tactile_data": ""
+    }
+  ],
+  "artifacts": {
+    "episode_dir": "data\\recordings\\board\\episode_002",
+    "metadata_path": "data\\recordings\\board\\episode_002\\metadata.json",
+    "capture_error": "",
+    "auto_label": {
+      "enabled": true,
+      "streams": [
+        {
+          "stream": "claw_rgb",
+          "export_dir": "data\\recordings\\board\\episode_002\\cvat_yolo\\claw_rgb",
+          "images": 0,
+          "labeled_images": 0
+        }
+      ],
+      "error": ""
+    },
+    "phase_yaml": "data\\teach_recordings\\board_v1.phases.yaml"
+  }
+}

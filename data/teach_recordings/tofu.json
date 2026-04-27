@@ -1,0 +1,105 @@
+{
+  "name": "tofu",
+  "created": "2026-04-24T19:52:55",
+  "start_unix": 1777031114.1819463,
+  "waypoints": [
+    {
+      "t_ms": 1901,
+      "pose": [
+        484659,
+        0,
+        347158,
+        175784,
+        245,
+        -86668
+      ],
+      "gripper": "none",
+      "speed": 30,
+      "gripper_pos": [
+        0,
+        0,
+        0
+      ],
+      "gripper_server_time_unix": 1777031110.418954,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 5234,
+      "pose": [
+        484659,
+        0,
+        187111,
+        175784,
+        245,
+        -86668
+      ],
+      "gripper": "none",
+      "speed": 30,
+      "gripper_pos": [
+        0,
+        0,
+        0
+      ],
+      "gripper_server_time_unix": 1777031113.749576,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 22666,
+      "pose": [
+        484659,
+        24567,
+        187111,
+        175784,
+        245,
+        -86668
+      ],
+      "gripper": "none",
+      "speed": 30,
+      "gripper_pos": [
+        0,
+        0,
+        0
+      ],
+      "gripper_server_time_unix": 1777031131.1817684,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 31216,
+      "pose": [
+        484659,
+        10955,
+        187111,
+        175784,
+        245,
+        -86668
+      ],
+      "gripper": "none",
+      "speed": 30,
+      "gripper_pos": [
+        0,
+        0,
+        0
+      ],
+      "gripper_server_time_unix": 1777031139.7220562,
+      "tactile_data": ""
+    }
+  ],
+  "artifacts": {
+    "episode_dir": "data\\recordings\\unknown_object\\episode_003",
+    "metadata_path": "data\\recordings\\unknown_object\\episode_003\\metadata.json",
+    "capture_error": "",
+    "auto_label": {
+      "enabled": true,
+      "streams": [
+        {
+          "stream": "claw_rgb",
+          "export_dir": "data\\recordings\\unknown_object\\episode_003\\cvat_yolo\\claw_rgb",
+          "images": 764,
+          "labeled_images": 9
+        }
+      ],
+      "error": ""
+    },
+    "phase_yaml": "data\\teach_recordings\\tofu.phases.yaml"
+  }
+}

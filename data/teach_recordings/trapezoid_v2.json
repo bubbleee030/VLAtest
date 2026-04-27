@@ -1,0 +1,105 @@
+{
+  "name": "trapezoid_v2",
+  "created": "2026-04-24T01:47:18",
+  "start_unix": 1776966305.3686194,
+  "waypoints": [
+    {
+      "t_ms": 1675,
+      "pose": [
+        490117,
+        -4,
+        424995,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        3052,
+        3055,
+        2028
+      ],
+      "gripper_server_time_unix": 1776966305.2807925,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 13460,
+      "pose": [
+        490117,
+        -4,
+        169135,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        3054,
+        3055,
+        2028
+      ],
+      "gripper_server_time_unix": 1776966317.009668,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 31068,
+      "pose": [
+        490117,
+        -4,
+        158614,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        2336,
+        2346,
+        1276
+      ],
+      "gripper_server_time_unix": 1776966334.6813831,
+      "tactile_data": ""
+    },
+    {
+      "t_ms": 69028,
+      "pose": [
+        490117,
+        -4,
+        275749,
+        179999,
+        0,
+        0
+      ],
+      "gripper": "none",
+      "speed": 60,
+      "gripper_pos": [
+        1925,
+        2322,
+        906
+      ],
+      "gripper_server_time_unix": 1776966372.6384563,
+      "tactile_data": ""
+    }
+  ],
+  "artifacts": {
+    "episode_dir": "data\\recordings\\trapezoid\\episode_001",
+    "metadata_path": "data\\recordings\\trapezoid\\episode_001\\metadata.json",
+    "capture_error": "",
+    "auto_label": {
+      "enabled": true,
+      "streams": [
+        {
+          "stream": "claw_rgb",
+          "export_dir": "data\\recordings\\trapezoid\\episode_001\\cvat_yolo\\claw_rgb",
+          "images": 337,
+          "labeled_images": 337
+        }
+      ],
+      "error": ""
+    },
+    "phase_yaml": "data\\teach_recordings\\trapezoid_v2.phases.yaml"
+  }
+}

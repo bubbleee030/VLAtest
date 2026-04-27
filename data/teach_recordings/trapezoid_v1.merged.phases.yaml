@@ -1,0 +1,131 @@
+phase_version: 1
+target_object: trapezoid
+source_recording: trapezoid_v1.merged
+source_recording_json: trapezoid_v1.merged.json
+
+# Pick side: start open, move over the object, descend, close slowly, then lift.
+ready_pose:
+- 490116
+- 0
+- 350995
+- 179999
+- 0
+- 0
+hover_pose:
+- 560276
+- 0
+- 300000
+- 179999
+- 0
+- -9768
+pregrasp_pose:
+- 560276
+- 0
+- 184715
+- 179999
+- 0
+- -9768
+grasp_pose:
+- 560276
+- 0
+- 164883
+- 179999
+- 0
+- -9768
+lift_pose:
+- 560276
+- 0
+- 300000
+- 179999
+- 0
+- -9768
+
+# Place side: move left, descend, release, lift, then return ready.
+place_hover_pose:
+- 560276
+- -217400
+- 300000
+- 179999
+- 0
+- -9768
+place_pose:
+- 560276
+- -217400
+- 172963
+- 179999
+- 0
+- -9768
+place_lift_pose:
+- 560276
+- -217400
+- 300000
+- 179999
+- 0
+- -9768
+
+speed:
+  fast_percent: 100
+  slow_percent: 55
+  pregrasp_percent: 100
+  grasp_percent: 45
+  lift_percent: 100
+  place_percent: 100
+  place_descend_percent: 55
+
+timing:
+  settle_s: 0.15
+  grip_hold_s: 0.45
+  release_hold_s: 0.35
+  prepare_open_s: 0.1
+  move_timeout_s: 10.0
+
+z_offsets:
+  hover_z_offset_um: 180000
+  pregrasp_z_offset_um: 35000
+  lift_z_offset_um: 200000
+
+return_pose: ready
+
+gripper:
+  open_at_start: true
+  open_mode: positions
+  open_command: o
+  open_positions:
+  - 3072
+  - 3072
+  - 2048
+  position_move_mode: stepped
+  open_step_ticks: 24
+  open_step_delay_s: 0.015
+  open_wait_s: 3.0
+  open_tolerance_ticks: 55
+
+  close_mode: positions
+  close_command: c
+  close_positions:
+  - 2122
+  - 2129
+  - 1194
+  close_step_ticks: 30
+  close_step_delay_s: 0.01
+  close_wait_s: 2.5
+  close_tolerance_ticks: 25
+
+  release_mode: positions
+  release_command: o
+  release_positions:
+  - 2948
+  - 2945
+  - 1909
+  release_step_ticks: 24
+  release_step_delay_s: 0.015
+  release_wait_s: 2.0
+  release_tolerance_ticks: 45
+
+  open_after_replay: false
+
+seed:
+  grasp_waypoint_index: 3
+  release_waypoint_index: 8
+  inferred_object_key: trapezoid
+  notes: "Manual v1 merged pick-and-place phase spec with external gripper CSV aligned."

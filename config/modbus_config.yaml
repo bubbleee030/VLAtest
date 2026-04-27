@@ -1,0 +1,67 @@
+# Modbus connection and robot arm control parameters.
+# Legacy relay / tunnel path:
+#   host: 127.0.0.1, port: 1502
+# Current preferred direct-switch path on Windows:
+#   host: 192.168.1.232 or 192.168.1.233, port: 502
+
+connection:
+  host: "127.0.0.1"
+  port: 1502
+  unit_id: 2
+  timeout_s: 1.0
+  connect_retries: 3
+  connect_retry_delay_s: 2.0
+
+# Register addresses (from DCS/DCV Modbus manual)
+registers:
+  servo_on_off: 0x0010            # Write 1=ON, 0=OFF
+  alarm_reset_1: 0x0026
+  alarm_reset_2: 0x0027
+  alarm_reset_3: 0x0020
+  group_error_reset: 0x0180
+  motion_command: 0x0300          # Write command code
+  robot_speed_override: 0x0246    # Unit: 0.1%, 1000 = 100%
+  in_position_flag: 0x031F
+  acceleration: 0x030A            # GO acceleration, raw manual unit: 0.01 PUU/ms^2 or 0.01 um/ms^2
+  speed_percent: 0x0324
+  target_pose_base: 0x0330        # 6 DW (12 registers): X,Y,Z,RX,RY,RZ
+  user_frame: 0x033C
+  target_posture: 0x033D
+  move_mode: 0x033E
+  tool_frame: 0x033F
+  current_pose_base: 0x00F0       # Read current Cartesian position (6 DW)
+
+# Command codes
+commands:
+  home: 1405
+  motion_stop: 1000
+  p2p_move: 301
+
+# Motion parameters
+motion:
+  move_mode: 3                    # Match weekly scripts: 0x033E=3 (Joint/ACS GO target mode)
+  default_speed_percent: 20
+  settle_wait_s: 2.0             # Wait after each motion
+  servo_settle_s: 1.0            # Wait after servo ON
+  verify_speed_write: true       # Read back mode/speed after each move command
+  set_robot_speed_override: true # Also set global speed override before GO move
+  robot_speed_override_percent: 100
+  # Manual GO example also exposes acceleration/posture/frame registers.
+  # Keep writes disabled by default; enable one at a time when tuning real hardware.
+  set_acceleration: false
+  acceleration_raw: 0
+  set_target_posture: false
+  target_posture: 0              # 0=RNU/right-hand family in DRV manual
+  set_frames: false
+  user_frame: 0
+  tool_frame: 0
+
+# Home position (safe resting pose)
+home_pose: [444000, 0, 744000, 0, -89999, 179999]
+
+# Safety
+safety:
+  home_before_task: true
+  home_after_task: true
+  require_confirmation: true      # Ask user before executing
+  max_speed_percent: 100          # 0x0324 GO speed supports 1-100%

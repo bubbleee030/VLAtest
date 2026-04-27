@@ -1,0 +1,125 @@
+# Voice prompt suggestions shown in the Voice Input panel.
+# Edit `active_object` to change the default object shown in the UI.
+
+active_object: "trapezoid"
+
+objects:
+  chopsticks:
+    title: "筷子 / Chopsticks"
+    stable_lines:
+      - "幫我拿桌上的筷子。"
+      - "拿那雙筷子給我。"
+    natural_lines:
+      - "幫我夾那雙筷子。"
+      - "桌上那雙筷子幫我拿一下。"
+    avoid_lines:
+      - "不要只說『那個』。"
+      - "不要只講『那雙』。"
+
+  stick:
+    title: "烤肉串 / Stick"
+    stable_lines:
+      - "幫我拿桌上的烤肉串。"
+      - "拿那支竹籤給我。"
+    natural_lines:
+      - "幫我夾那支竹籤。"
+      - "桌上那支烤肉串幫我拿一下。"
+    avoid_lines:
+      - "不要只說『棒子』。"
+      - "不要只講『那支』。"
+
+  scissors:
+    title: "剪刀 / Scissors"
+    stable_lines:
+      - "幫我拿桌上的剪刀。"
+      - "拿那把剪刀給我。"
+    natural_lines:
+      - "幫我夾那把小剪刀。"
+      - "桌上那把剪刀幫我拿一下。"
+    avoid_lines:
+      - "避免只講『那把』。"
+      - "不要只講『剪』。"
+
+  trapezoid:
+    title: "紅色梯形 / Trapezoid"
+    stable_lines:
+      - "幫我拿桌上那個紅色梯形。"
+      - "拿那個紅色木塊給我。"
+    natural_lines:
+      - "幫我夾那個紅色的梯形。"
+      - "桌上那個紅色木塊幫我拿一下。"
+    avoid_lines:
+      - "不要講成『梯型』。"
+      - "如果只講『紅色』，系統會直接對到梯形。"
+
+  board:
+    title: "電路板 / Board"
+    stable_lines:
+      - "幫我拿桌上的電路板。"
+      - "拿那塊板子給我。"
+    natural_lines:
+      - "幫我夾那塊電路板。"
+      - "桌上那塊板子幫我拿一下。"
+    avoid_lines:
+      - "不要只講『板』。"
+      - "不要只講『那塊』。"
+
+  butter_knife:
+    title: "奶油抹刀 / Butter Knife"
+    stable_lines:
+      - "幫我拿桌上的奶油抹刀。"
+      - "拿那支奶油刀給我。"
+    natural_lines:
+      - "幫我夾那支奶油刀。"
+      - "桌上那支抹刀幫我拿一下。"
+    avoid_lines:
+      - "不要只講『刀子』。"
+      - "不要講成『菜刀』。"
+
+  spoon:
+    title: "湯匙 / Spoon"
+    stable_lines:
+      - "幫我拿桌上的湯匙。"
+      - "拿那支湯匙給我。"
+    natural_lines:
+      - "幫我夾那支大湯匙。"
+      - "桌上那支湯匙幫我拿一下。"
+    avoid_lines:
+      - "不要講成『小湯匙』。"
+      - "不要只講『匙子』。"
+
+  coffee_scoop:
+    title: "小湯匙 / Coffee Scoop"
+    stable_lines:
+      - "幫我拿桌上的小湯匙。"
+      - "拿那支咖啡匙給我。"
+    natural_lines:
+      - "幫我夾那支小湯匙。"
+      - "桌上那支咖啡勺幫我拿一下。"
+    avoid_lines:
+      - "不要只講『湯匙』。"
+      - "不要跟大湯匙混著講。"
+
+  tweezers:
+    title: "鑷子 / Tweezers"
+    stable_lines:
+      - "幫我拿桌上的鑷子。"
+      - "拿那支小鑷子給我。"
+    natural_lines:
+      - "幫我夾那支鑷子。"
+      - "桌上那支小鑷子幫我拿一下。"
+    avoid_lines:
+      - "不要講太泛的『夾子』。"
+      - "不要只講『那支』。"
+
+  knife:
+    title: "刀子 / Knife"
+    stable_lines:
+      - "幫我拿桌上的刀子。"
+      - "拿那把菜刀給我。"
+    natural_lines:
+      - "幫我夾那把刀子。"
+      - "桌上那把菜刀幫我拿一下。"
+    avoid_lines:
+      - "不要講成『奶油刀』。"
+      - "不要只講『那把』。"

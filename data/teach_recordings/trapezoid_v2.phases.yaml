@@ -1,0 +1,85 @@
+phase_version: 1
+target_object: trapezoid
+source_recording: trapezoid_v2.merged
+source_recording_json: trapezoid_v2.merged.json
+ready_pose:
+- 490117
+- -4
+- 424995
+- 179999
+- 0
+- 0
+hover_pose:
+- 490117
+- -4
+- 424995
+- 179999
+- 0
+- 0
+pregrasp_pose:
+- 490117
+- -4
+- 169135
+- 179999
+- 0
+- 0
+grasp_pose:
+- 490117
+- -4
+- 158614
+- 179999
+- 0
+- 0
+lift_pose:
+- 490117
+- -4
+- 275749
+- 179999
+- 0
+- 0
+speed:
+  fast_percent: 65
+  slow_percent: 15
+  pregrasp_percent: 45
+  grasp_percent: 15
+  lift_percent: 55
+timing:
+  settle_s: 0.25
+  grip_hold_s: 1.1
+  prepare_open_s: 0.35
+  move_timeout_s: 12.0
+z_offsets:
+  hover_z_offset_um: 266381
+  pregrasp_z_offset_um: 10521
+  lift_z_offset_um: 117135
+return_pose: ready
+gripper:
+  open_at_start: true
+  open_mode: positions
+  open_command: o
+  open_positions:
+  - 3052
+  - 3055
+  - 2028
+  position_move_mode: stepped
+  open_step_ticks: 24
+  open_step_delay_s: 0.015
+  close_mode: positions
+  close_command: c
+  close_positions:
+  - 2336
+  - 2346
+  - 1276
+  close_step_ticks: 15
+  close_step_delay_s: 0.03
+  open_after_replay: false
+seed:
+  grasp_waypoint_index: 2
+  hover_seed_pose:
+  - 490117
+  - -4
+  - 424995
+  - 179999
+  - 0
+  - 0
+  inferred_object_key: trapezoid
